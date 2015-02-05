@@ -1,0 +1,11 @@
+<h1>Add photo form!!!!</h1>
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <button>Upload</button>
+</form>
+:-)

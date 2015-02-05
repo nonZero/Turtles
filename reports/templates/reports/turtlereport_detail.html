@@ -1,0 +1,17 @@
+{{ object.id }}
+{{ object.uid }}
+{{ object.date }}
+{{ object.time }}
+{{ object.observer }}
+
+<ul>
+    {% for photo in object.photos.all %}
+        <li>
+            {{ photo.id }}
+            <img src="{{ photo.img.url }}" alt="" height="200"/>
+
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url "upload" object.uid %}">Upload a photo</a>
