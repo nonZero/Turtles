@@ -1,0 +1,42 @@
+{{ object.id }}
+{{ object.uid }}
+{{ object.date }}
+{{ object.time }}
+{{ object.observer }}
+
+{% if object.emails.count %}
+    <h2>Emails</h2>
+    <ul>
+        {% for email in object.emails.all %}
+            <li>
+
+                {{ email.id }}
+                <ul>
+                    {% for photo in object.photos.all %}
+                        <li>
+                            {{ photo.id }}
+                            <img src="{{ photo.img.url }}" alt=""
+                                 height="200"/>
+
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if object.uploads.count %}
+    <h2>Uploads</h2>
+    <ul>
+        {% for photo in object.uploads %}
+            <li>
+                {{ photo.id }}
+                <img src="{{ photo.img.url }}" alt="" height="200"/>
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<a href="{% url "upload" object.uid %}">Upload a photo</a>
