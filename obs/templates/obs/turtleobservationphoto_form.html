@@ -1,11 +1,20 @@
-<h1>Add photo form!!!!</h1>
+{% extends "base.html" %}
+{% load i18n leaflet_tags %}
 
+{% block title %}
+    {% trans "Turtle Observation" %} #{{ view.ob.id }} &gt; {% trans "Add Photo" %}
+{% endblock %}
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <ul>
-        {{ form.as_ul }}
-    </ul>
-    <button>Upload</button>
-</form>
-:-)
+{% block header %}
+    {% trans "Turtle Observation" %} #{{ view.ob.id }} &gt; {% trans "Add Photo" %}
+{% endblock %}
+
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-primary btn-block">{% trans "Upload" %}</button>
+    </form>
+
+{% endblock %}

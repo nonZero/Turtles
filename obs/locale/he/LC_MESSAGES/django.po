@@ -1,0 +1,229 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: turtles\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: he\n"
+
+msgid "Unknown"
+msgstr "לא ידוע"
+
+msgid "Long"
+msgstr "ארוך"
+
+msgid "Short"
+msgstr "קצר"
+
+msgid "Injured Turtle"
+msgstr "צב פצוע"
+
+msgid "Live Turtle"
+msgstr "צב חי"
+
+msgid "Dead Turtle"
+msgstr "צב מת"
+
+msgid "On the shore"
+msgstr "על החוף"
+
+msgid "At Sea level, less than 5m deep"
+msgstr "עד עומק 5 מ' מפני הים"
+
+msgid "Deeper than 5m deep"
+msgstr "בעומק הים, מעל 5 מ'"
+
+msgid "On the Sea bottom"
+msgstr "על קרקעית הים"
+
+msgid "Chelonia mydas, Green Sea Turtle"
+msgstr "צב-ים ירוק"
+
+msgid "Carette caretta, Loggerhead Sea Turtle"
+msgstr "צב-ים חום"
+
+msgid "Eretmochelys imbricata, Hawksbill Sea Turtle"
+msgstr "צב-ים קרני"
+
+msgid "Dermochelys coriacea, Leatherback Sea Turtle"
+msgstr "צב-ים גלדי"
+
+msgid "Trionyx triunguis, Nile Soft Shell Turtle"
+msgstr "צב-רך"
+
+msgid "Mauremys caspica, Caspian Turtle"
+msgstr "צב-ביצה"
+
+msgid "Breathing"
+msgstr "נושם"
+
+msgid "Breeding"
+msgstr "הזדווגות"
+
+msgid "Feeding"
+msgstr "אכילה"
+
+msgid "Nesting"
+msgstr "קינון"
+
+msgid "Sleeping"
+msgstr "לינה"
+
+msgid "Swimming"
+msgstr "שחיה"
+
+msgid "Other"
+msgstr "התנהגות אחרת"
+
+msgid "Your Name"
+msgstr "השם שלך"
+
+msgid "Your Email"
+msgstr "הדואל שלך"
+
+msgid "Your Phone"
+msgstr "הטלפון שלך"
+
+msgid "Observer"
+msgstr "שם המדווח"
+
+msgid "Email"
+msgstr "דוא\"ל"
+
+msgid "Phone"
+msgstr "טלפון"
+
+msgid "created at"
+msgstr "מועד יצירה"
+
+msgid "Observation Date"
+msgstr "תאריך תצפית"
+
+msgid "Observation Time"
+msgstr "שעת תצפית"
+
+msgid "point"
+msgstr "נקודה"
+
+msgid "Turtle Status"
+msgstr "שלומו של הצב"
+
+msgid "Turtle Place"
+msgstr "מקום המצאו של הצב"
+
+msgid "Turtle Species"
+msgstr "מין הצב"
+
+msgid "Turtle Behaviour"
+msgstr "התנהגות הצב"
+
+msgid "Tail Length"
+msgstr "אורך זנב"
+
+msgid "Observation Description"
+msgstr "תיאור התצפית"
+
+msgid "Anything else you want to tell us? Did the turtle have a tag on it?"
+msgstr "משהו מעניין נוסף? האם לצב היה תג?"
+
+msgid "turtle observation"
+msgstr "תצפית בצב"
+
+msgid "turtle observations"
+msgstr "תצפיות בצבים"
+
+msgid "turtle observation email"
+msgstr "דואל לתצפית בצב"
+
+msgid "turtle observation emails"
+msgstr "הודעות דואל לתצפית בצב"
+
+msgid "image"
+msgstr "תמונה"
+
+msgid "turtle observation photo"
+msgstr "תמונה לתצפית בצב"
+
+msgid "turtle observation photos"
+msgstr "תמונות תצפית בצב"
+
+msgid "Turtle Observation"
+msgstr "תצפית בצבים"
+
+msgid "by"
+msgstr "מאת"
+
+msgid "from"
+msgstr "מאת"
+
+msgid "Add photos via email"
+msgstr "הוספת תמונות באמצעות הדואל"
+
+msgid "Upload a photo"
+msgstr "העלאת תמונה מהדפדפן"
+
+msgid "Email is recommended for mobile devices"
+msgstr "במכשירים ניידים מומלץ להוסיף תמונות באמצעות הדואר האלקטרוני"
+
+msgid "Add Turtle Observation"
+msgstr "הוספת תצפית בצבים"
+
+msgid "Save and continue to upload"
+msgstr "שמור תצפית והמשך להוספת תמונות"
+
+msgid "Add Photo"
+msgstr "הוספת תמונה"
+
+msgid "Upload"
+msgstr "העלאה"
+
+#~ msgid "Comments"
+#~ msgstr "הערות"
+
+#~ msgid "username"
+#~ msgstr "שם משתמש"
+
+#~ msgid "Report Time"
+#~ msgstr "זמן דיווח"
+
+#~ msgid "gps point"
+#~ msgstr "נקודה מGPS"
+
+#, fuzzy
+#~| msgid "Turtle Status"
+#~ msgid "Turtles"
+#~ msgstr "שלומו של הצב"
+
+#~ msgid "Poaching Report System"
+#~ msgstr "מערכת דיווחי ציד"
+
+#~ msgid "New Report"
+#~ msgstr "דיווח חדש"
+
+#~ msgid "New Poacher"
+#~ msgstr "ציד חדש"
+
+#~ msgid "ON"
+#~ msgstr "דלוק"
+
+#~ msgid "OFF"
+#~ msgstr "כבוי"
+
+#~ msgid "Click to see tail images for example"
+#~ msgstr "לחץ כדי לראות איורים לדוגמא"
+
+#~ msgid "Accuracy"
+#~ msgstr "דיוק"
+
+#~ msgid "meter"
+#~ msgstr "מטר"
+
+#~ msgid "Submit"
+#~ msgstr "שלח טופס"
+
+#~ msgid "I'm not sure"
+#~ msgstr "אני לא בטוח"

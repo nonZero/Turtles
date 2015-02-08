@@ -1,6 +1,7 @@
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TURTLES_DIR = os.path.dirname(__file__)
+BASE_DIR = os.path.dirname(TURTLES_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +31,12 @@ INSTALLED_APPS = (
     'django.contrib.gis',
 
     'django_extensions',
+    'floppyforms_bootstrap3',
     'floppyforms',
+    'bootstrap3',
+    'leaflet',
+    'google_leaflet',
+
 
     'obs',
 
@@ -52,8 +58,6 @@ WSGI_APPLICATION = 'turtles.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
@@ -61,26 +65,23 @@ DATABASES = {
         'USER': 'turtles',
     }
 }
+
 # Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'he'
+TIME_ZONE = 'Asia/Jerusalem'
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 TURTLE_SMTP_DOMAIN = "redlist.parks.org.il"
 TURTLE_MAIL_PREFIX = "turtle."
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+STATICFILES_DIRS = (
+    os.path.join(TURTLES_DIR, "static"),
+)
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected-static')
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
@@ -88,6 +89,31 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 ITM_SRID = 2039
 
 DEFAULT_FILE_STORAGE = "turtles.storages.RandomFilenameStorage"
+
+LEAFLET_CONFIG = {
+    'SPATIAL_EXTENT': (30, 29, 36, 33.5),
+    # 'DEFAULT_CENTER': (31.5, 35.0),
+    # 'DEFAULT_ZOOM': 8,
+
+    'TILES': [
+
+        ('OVI Satellite',
+         'http://maptile.maps.svc.ovi.com/maptiler/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8',
+         'OVI maps'),
+
+        ('OpenStreet map',
+         'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+         'OpenStreet Map'),
+
+        ('MapQuest Open Aerial',
+         'http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg',
+         'MapQuest Open Aerial'),
+
+    ],
+
+    'ATTRIBUTION_PREFIX': 'Timi',
+
+}
 
 LOGGING = {
     'version': 1,

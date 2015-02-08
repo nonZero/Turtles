@@ -116,7 +116,7 @@ class TurtleObservationPhoto(models.Model):
 
     email = models.ForeignKey(TurtleObservationEmail, null=True, blank=True,
                               related_name='photos')
-    img = models.ImageField(upload_to="reports", width_field='width',
+    img = models.ImageField(_('image'), upload_to="reports", width_field='width',
                             height_field='height')
     width = models.IntegerField()
     height = models.IntegerField()

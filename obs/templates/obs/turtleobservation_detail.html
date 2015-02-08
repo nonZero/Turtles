@@ -1,42 +1,95 @@
-{{ object.id }}
-{{ object.uid }}
-{{ object.date }}
-{{ object.time }}
-{{ object.observer }}
+{% extends "base.html" %}
+{% load i18n leaflet_tags %}
 
-{% if object.emails.count %}
-    <h2>Emails</h2>
-    <ul>
-        {% for email in object.emails.all %}
-            <li>
+{% block extra_head %}
+    {% leaflet_css %}
+{% endblock %}
 
-                {{ email.id }}
-                <ul>
-                    {% for photo in object.photos.all %}
-                        <li>
-                            {{ photo.id }}
-                            <img src="{{ photo.img.url }}" alt=""
-                                 height="200"/>
+{% block title %}
+    {% trans "Turtle Observation" %} #{{ object.id }}
+{% endblock %}
 
-                        </li>
+{% block header %}
+    {% trans "Turtle Observation" %} #{{ object.id }}
+{% endblock %}
+
+{% block content %}
+    <p>
+        {{ object.date|default:"" }}, {{ object.time|default:"" }}, {% trans "by" %} {{ object.observer }}
+    </p>
+    {% for email in object.emails.all %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>{{ email.subject }}</b> {% trans "from" %} {{ email.sender }} {{ email.created_at }}
+            </div>
+            <div class="panel-body">
+                {% if email.text %}
+                    <p>{{ email.text|linebreaksbr }}</p>
+                {% endif %}
+                {% if email.html %}
+                    <p>{{ email.html|striptags|linebreaksbr }}</p>
+                {% endif %}
+
+                <div class="row">
+                    {% for photo in email.photos.all %}
+                        <div class="col-xs-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="{{ photo.img.url }}" alt=""
+                                        />
+                            </a>
+                        </div>
                     {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 
-{% if object.uploads.count %}
-    <h2>Uploads</h2>
-    <ul>
-        {% for photo in object.uploads %}
-            <li>
-                {{ photo.id }}
-                <img src="{{ photo.img.url }}" alt="" height="200"/>
+    {% if object.uploads.count %}
+        <div class="row">
+            {% for photo in object.uploads %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="{{ photo.img.url }}" alt=""/>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+    <div class="row">
+        <div class="col-sm-6">
+            <a class="btn btn-large btn-primary btn-block"
+               href="mailto:{{ object.incoming_email }}?subject={% trans "Turtle Observation" %} %23{{ object.id }}">
+                <i class="glyphicon glyphicon-envelope"></i>
+                {% trans "Add photos via email" %}
+            </a>
 
-<a href="{% url "upload" object.uid %}">Upload a photo</a>
+            <p/>
+
+            <p class="text-center"><a class=""
+                                      href="mailto:{{ object.incoming_email }}?subject={% trans "Turtle Observation" %} %23{{ object.id }}">{{ object.incoming_email }}</a>
+            </p>
+
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-primary btn-block"
+               href="{% url "upload" object.uid %}">
+                <i class="glyphicon glyphicon-upload"></i>
+                {% trans "Upload a photo" %}</a>
+
+            <p/>
+
+            <p class="text-center">
+                {% trans "Email is recommended for mobile devices" %}
+            </p>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+    {% leaflet_js %}
+{% endblock %}
+
+

@@ -1,11 +1,32 @@
-<h1>Welcome to my form!!!!</h1>
+{% extends "base.html" %}
+{% load i18n leaflet_tags %}
 
+{% block extra_head %}
+    {% leaflet_css plugins="forms" %}
+{% endblock %}
 
-<form method="post">
-    {% csrf_token %}
-    <ul>
-        {{ form.as_ul }}
-    </ul>
-    <button>Save and continue to upload</button>
-</form>
-:-)
+{% block title %}
+    {% trans "Add Turtle Observation" %}
+{% endblock %}
+
+{% block header %}
+    {% trans "Add Turtle Observation" %}
+{% endblock %}
+
+{% block content %}
+
+    {{ form.meta.css }}
+    {{ form.meta.js }}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-primary btn-block">{% trans "Save and continue to upload" %}</button>
+    </form>
+
+{% endblock %}
+
+{% block scripts %}
+    {% leaflet_js plugins="forms" %}
+    {{ form.media.js }}
+{% endblock %}
