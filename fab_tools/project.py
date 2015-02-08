@@ -37,6 +37,9 @@ def reload_app():
 
 @task
 def deploy(restart=True):
+    if restart:
+        run("sudo supervisorctl stop {}_smtpd".format(env.webuser),
+            warn_only=True)
     with virtualenv(env.code_dir):
         run("git pull")
         run("pip install -r requirements.txt")
@@ -48,6 +51,7 @@ def deploy(restart=True):
         run("git log -n 1 > collected-static/version-full.txt")
     if restart:
         reload_app()
+        run("sudo supervisorctl start {}_smtpd".format(env.webuser))
 
 
 @task

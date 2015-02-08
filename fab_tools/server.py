@@ -88,7 +88,7 @@ def nginx_setup():
               'server_names_hash_bucket_size\s+64',
               use_sudo=True)
 
-    run('sudo rm -f /etc/nginx/sites-enabled/default')
+    # run('sudo rm -f /etc/nginx/sites-enabled/default')
 
     run('sudo ln -fs %sconf/nginx.conf %s' % (env.code_dir, nginx_conf1))
     run('sudo ln -fs %s %s' % (nginx_conf1, nginx_conf2))

@@ -65,9 +65,10 @@ class TurtleObservation(models.Model):
         _(
             'Anything else you want to tell us? Did the turtle have a tag on it?'))
 
-    uid = models.CharField(max_length=UID_LENGTH, default=make_uid)
+    uid = models.CharField(max_length=UID_LENGTH, default=make_uid,
+                           unique=True)
     email_uid = models.CharField(max_length=EMAIL_UID_LENGTH,
-                                 default=make_email_uid)
+                                 default=make_email_uid, unique=True)
 
     class Meta:
         verbose_name = _("turtle observation")
@@ -116,7 +117,8 @@ class TurtleObservationPhoto(models.Model):
 
     email = models.ForeignKey(TurtleObservationEmail, null=True, blank=True,
                               related_name='photos')
-    img = models.ImageField(_('image'), upload_to="reports", width_field='width',
+    img = models.ImageField(_('image'), upload_to="reports",
+                            width_field='width',
                             height_field='height')
     width = models.IntegerField()
     height = models.IntegerField()

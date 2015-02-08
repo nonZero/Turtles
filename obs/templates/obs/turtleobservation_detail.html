@@ -23,11 +23,11 @@
                 <b>{{ email.subject }}</b> {% trans "from" %} {{ email.sender }} {{ email.created_at }}
             </div>
             <div class="panel-body">
-                {% if email.text %}
-                    <p>{{ email.text|linebreaksbr }}</p>
+                {% if email.body_text %}
+                    <p>{{ email.body_text|linebreaksbr }}</p>
                 {% endif %}
-                {% if email.html %}
-                    <p>{{ email.html|striptags|linebreaksbr }}</p>
+                {% if email.body_html %}
+                    <p>{{ email.body_html|striptags|linebreaksbr }}</p>
                 {% endif %}
 
                 <div class="row">

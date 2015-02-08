@@ -34,7 +34,7 @@ def qa():
 
 @task
 def prod():
-    env.vhost = 'turtles.10x.org.il'
+    env.vhost = 'turtles.wildside.org.il'
     env.hosts = [env.vhost]
     env.redirect_host = 'www.%s' % env.vhost
 

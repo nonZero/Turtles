@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(TURTLES_DIR)
 DEBUG = False
 TEMPLATE_DEBUG = False
 
-HOST = "turtles.10x.org.il"
+HOST = "turtles.wildside.org.il"
 ALLOWED_HOSTS = [HOST]
 
 
@@ -67,6 +67,8 @@ USE_TZ = True
 
 TURTLE_SMTP_DOMAIN = HOST
 TURTLE_MAIL_PREFIX = "turtle."
+TURTLES_SMTP_PORT = 4467
+TURTLES_SMTP_HOST = '127.0.0.1'
 
 # Static files (CSS, JavaScript, Images)
 STATICFILES_DIRS = (
