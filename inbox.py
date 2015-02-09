@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from email.header import decode_header
 import logging
 
 import smtpd
@@ -19,7 +20,8 @@ class InboxServer(smtpd.SMTPServer, object):
 
     def process_message(self, peer, mailfrom, rcpttos, data):
         logger.info('Collating message from {0}'.format(mailfrom))
-        subject = Parser().parsestr(data)['subject']
+        msg = Parser().parsestr(data)
+        subject = decode_header(msg['subject'])[0][0]
         logger.debug(
             dict(to=rcpttos, sender=mailfrom, subject=subject, body=data))
         try:
