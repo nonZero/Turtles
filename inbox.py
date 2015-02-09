@@ -40,7 +40,6 @@ class Inbox(object):
         self.port = port
         self.address = address
 
-
     def serve(self, port=None, address=None):
         """Serves the SMTP server on the given port and address."""
         port = port or self.port
@@ -54,17 +53,3 @@ class Inbox(object):
             asyncore.loop()
         except KeyboardInterrupt:
             logger.info('Cleaning up')
-
-
-    def dispatch(self):
-        """Command-line dispatch."""
-        parser = argparse.ArgumentParser(description='Run an Inbox server.')
-
-        parser.add_argument('addr', metavar='addr', type=str,
-                            help='addr to bind to')
-        parser.add_argument('port', metavar='port', type=int,
-                            help='port to bind to')
-
-        args = parser.parse_args()
-
-        self.serve(port=args.port, address=args.addr)

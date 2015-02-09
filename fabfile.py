@@ -1,6 +1,8 @@
 import datetime
 
 from fabric.api import *
+import jinja2
+assert jinja2
 
 from fab_tools.server import *
 from fab_tools.project import *
