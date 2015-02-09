@@ -156,6 +156,11 @@ LOGGING = {
         'django': {
             'handlers': ['console'],
         },
+        'inbox': {
+            'handlers': ['mail_admins', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
         'django.request': {
             'handlers': ['mail_admins', 'console'],
             'level': 'INFO',
