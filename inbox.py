@@ -4,11 +4,15 @@ import logging
 
 import smtpd
 import asyncore
-import argparse
 from email.parser import Parser
 
 
 logger = logging.getLogger(__name__)
+
+
+def parse_header(s):
+    t = decode_header(s)[0]
+    return t[0].decode(t[1] or 'ascii')
 
 
 class InboxServer(smtpd.SMTPServer, object):
@@ -21,7 +25,7 @@ class InboxServer(smtpd.SMTPServer, object):
     def process_message(self, peer, mailfrom, rcpttos, data):
         logger.info('Collating message from {0}'.format(mailfrom))
         msg = Parser().parsestr(data)
-        subject = decode_header(msg['subject'])[0][0]
+        subject = parse_header(msg['subject'])
         logger.debug(
             dict(to=rcpttos, sender=mailfrom, subject=subject, body=data))
         try:
