@@ -98,7 +98,7 @@ class TurtleObservationEmail(models.Model):
 
     sender = models.EmailField(null=True, blank=True)
     subject = models.TextField(null=True, blank=True)
-    body_text = models.EmailField(null=True, blank=True)
+    body_text = models.TextField(null=True, blank=True)
     body_html = models.TextField(null=True, blank=True)
 
     class Meta:

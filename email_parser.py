@@ -9,6 +9,11 @@ class ImageContentFile(ContentFile, ImageFile):
     pass
 
 
+def parse_part(part):
+    return part.get_payload(decode=True).decode(
+        part.get_content_charset() or "ascii")
+
+
 def parse_message(body):
     """Parses an email message body.
      returns (text, html, [ImageFile...])"""
@@ -21,10 +26,10 @@ def parse_message(body):
         ct = m.get_content_type()
         if ct == "text/plain":
             if not text:
-                text = m.get_payload(decode=True)
+                text = parse_part(m)
         elif ct == "text/html":
             if not html:
-                html = m.get_payload(decode=True)
+                html = parse_part(m)
         elif ct.startswith("image/"):
             f = ImageContentFile(m.get_payload(decode=True), m.get_filename())
             if f._get_image_dimensions():
